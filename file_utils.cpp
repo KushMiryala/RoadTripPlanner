@@ -1,4 +1,4 @@
-// file_utils.cpp  ── NEW VERSION ─────────────────────────────────────────────
+
 #include "file_utils.h"
 #include <fstream>
 #include <iterator>
@@ -14,9 +14,7 @@ static bool inBox(double lat, double lon,
 }
 
 // Handles four‑column “trimmed” lines and silently skips bad ones.
-//
-// Format:   name<TAB|SPACE+>lat<TAB|SPACE+>lon<TAB|SPACE+>class
-//
+
 std::vector<City> readCitiesWithinBox(const std::string& file,
                                       double minLat, double maxLat,
                                       double minLon, double maxLon)
@@ -28,13 +26,14 @@ std::vector<City> readCitiesWithinBox(const std::string& file,
     while (std::getline(in, line)) {
         if (line.empty()) continue;
 
-        // 1.  Tokenise on any whitespace
+        // Tokenise on any whitespace
         std::istringstream iss(line);
         std::vector<std::string> tok{ std::istream_iterator<std::string>{iss},
                                       std::istream_iterator<std::string>{} };
-        if (tok.size() < 4) continue;                 // malformed
+        if (tok.size() < 4) continue;               
 
-        // 2.  Last 3 tokens are lon/lat/class; the rest form the name
+        // Last 3 tokens are lon/lat/class
+        // the rest form the name
         std::string  cls  = tok.back(); tok.pop_back();
         double       lon  = std::stod(tok.back()); tok.pop_back();
         double       lat  = std::stod(tok.back()); tok.pop_back();
