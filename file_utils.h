@@ -1,6 +1,4 @@
-//
-// Created by Nikash Jakkidi on 4/22/25.
-//
+
 
 #ifndef FILE_UTILS_H
 #define FILE_UTILS_H
