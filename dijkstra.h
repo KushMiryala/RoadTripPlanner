@@ -1,9 +1,4 @@
-//
-// Created by Nikash Jakkidi on 4/22/25.
-//
 
-
-// dijkstra.h
 #pragma once
 #include <vector>
 
