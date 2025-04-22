@@ -1,6 +1,4 @@
-//
-// Created by Nikash Jakkidi on 4/22/25.
-//
+
 
 #pragma once
 #include "geo_utils.h"
